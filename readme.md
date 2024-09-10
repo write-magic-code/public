@@ -11,5 +11,7 @@
 - **git and hub**：Git 和 GitHub 常用功能
 - **network**：关于网络的常用知识
 
+请到对应目录下寻找相关 markdown 阅读。  
+
 对于新手，我们推荐先阅读 toolset mindset 和 language 部分。这部分一定能加速你学习速度。  
 而其余部分，则是需要/兴趣的时候再阅读。  
