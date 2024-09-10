@@ -7,8 +7,9 @@
 
 ## 目录
 - **toolset mindset**：工具和思维方法
-- **language**：看完之后最好不要有编程语言问题
-- **git and hub**：Git 和 GitHub 常用功能
+- **html css js**: 前端三件套最小基础
+- **language**：现代编程语言最小基础
+- **git and hub**：Git 和 GitHub 最小常用功能
 - **network**：关于网络的常用知识
 
 请到对应目录下寻找相关 markdown 阅读。  
