@@ -1,5 +1,8 @@
 # HTML, CSS, and JavaScript
 
+## 在哪儿学
+MDN：https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web
+
 ## 三件套是什么
 
 ### HTML
@@ -24,8 +27,6 @@ JS 是一种用途广泛的脚本语言，在网页开发中，主要用于实�
 
 假如要实现一个点击按钮，弹出一个提示框的功能，可以按照如下步骤实现：
 
-### 写 HTML
-
 ```html
 <!DOCTYPE html>
 <html>
@@ -37,16 +38,6 @@ JS 是一种用途广泛的脚本语言，在网页开发中，主要用于实�
   </body>
 </html>
 ```
-
-可以理解为 HTML 是一种更易于编写的文字排版工具，可以通过标签来描述内容的结构。
-
-HTML 自带相当数量的元素，其中大部分是描述性的，比如 `<p>...</p>` 表示段落，`<div>...</div>` 表示一个容器，`<section>...</section>` 表示文章中的一个章节，而 `section` 和 `div` 实际上并没有区别，只是编写 `section` 可以让代码更容易理清结构。同时还有少部分元素是具有功能的，`input` 表示一个输入框，`a` 表示一个链接，`img` 表示一个图片，`video` 用于播放视频等等，这些元素可以通过属性来描述更多的功能。
-
-同时 HTML 的元素上有很多共用的属性，比如 `id` 用于标识元素（方便 JS 和 CSS 操作），`class` 辅助 CSS 的选中（这个后面会讲到），`style` 用于直接设置元素的样式，`onclick` 用于设置点击事件等等。
-
-对于学习 HTML，不建议死记硬背，用到的时候查文档即可，文档只推荐 MDN，MDN 里面相关教程在 https://developer.mozilla.org/zh-CN/docs/Web/HTML
-
-### 写 CSS
 
 再根据上面写的 HTML，用 CSS 来美化外观。
 
@@ -65,10 +56,6 @@ button#btn {
   cursor: pointer;
 }
 ```
-
-CSS 在日常开发中需要使用的属性非常多而且有这样那样的特性，不建议死记硬背，用到的时候查文档即可，文档只推荐 MDN，MDN 里面相关教程在 https://developer.mozilla.org/zh-CN/docs/Web/CSS
-
-### 写 JS
 
 再使用 JS 来实现交互功能。
 
@@ -110,8 +97,6 @@ const btn = document.getElementById('btn');
 btn.style.backgroundColor = '#4caf50';
 ```
 
-同样无法赘述，建议用到的时候再去查 MDN。
-
 ### BOM 操作
 
 大部分浏览器提供的，跟操作元素无关的功能，基本可以归为 BOM 操作，比如发起网络请求、获取用户位置、操作 cookie 等等。
@@ -119,12 +104,20 @@ btn.style.backgroundColor = '#4caf50';
 ```js
 // 发起一个 GET 请求
 fetch('https://api.github.com/users/').then(res => res.json()).then(console.log);
-
 // 获取用户的位置
 navigator.geolocation.getCurrentPosition();
-
 // 操作 cookie
 document.cookie = 'name=hello';
 ```
 
 这个建议用到的时候直接搜索，比如搜索 `fetch`，`navigator.geolocation`，`document.cookie` 等等。
+
+## 浏览器
+
+浏览器在本地
+
+### v8
+v8是runtime的内核，比较屌，谷歌开发的
+
+### chronium
+浏览器市场大部分都用，所以长得都跟chrome一样。三件套（三种文件）都会被扔在这里执行。
