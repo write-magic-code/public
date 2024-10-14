@@ -128,7 +128,7 @@ cd /your/path # change directory 切换到 /your/path 目录
 cd ../ # change directory to parent 切换到上级目录
 mkdir test-dir # make directory 创建 test-dir 目录
 rm file.txt # remove 删除 file.txt
-cp file1 fiel2 # copy file1 to file2 复制 file1 到 file2
+cp file1 file2 # copy file1 to file2 复制 file1 到 file2
 ./my/script.sh # run my/script.sh 的脚本
 ```
 >这些是 linux 和 macOS 上常用的命令（windows powershell 也逐渐支持了），它们都省略了主语（如`cd`可以被设计成`linux cd your/path`）。有的则省略了宾语（如`ls`）。  
