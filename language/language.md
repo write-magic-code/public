@@ -25,7 +25,7 @@
 程序的定义是**为执行特定任务，经过数据输入，计算后，输出结果**的过程。  
 你写的代码，算程序；广义说，法院的流程，也算程序。
 
-所有语言都能找到输出用的方法（函数）。大部分叫`print`，也有叫`out`，甚至有`consloe.log`，还有更奇怪的。  
+所有语言都能找到输出用的方法（函数）。大部分叫`print`，也有叫`out`，甚至有`console.log`，还有更奇怪的。  
 总之，拿到一门新语言，请你先去找到它的I/O接口（函数），并稍微关心它是输出到哪儿的（有些甚至输出到浏览器的控制台）。  
 
 ## 1·表达式 expression、左右值 l-value r-value、返回值 return value
@@ -135,7 +135,7 @@ it = a.begin(); print(it.value());
 it = it.next(); print(it.value()); 
 // 'two'
 ```
-像数组迭的代器顺序，有实际意义，和数组顺序有关。对于许多无序容器，则不必多考虑迭代器顺序意义——**它只是纯粹给你串起来，方便你用 for 遍历的**。  
+像数组的迭代器顺序，有实际意义，和数组顺序有关。对于许多无序容器，则不必多考虑迭代器顺序意义——**它只是纯粹给你串起来，方便你用 for 遍历的**。  
 
 ### 迭代器 for 遍历
 
@@ -204,7 +204,7 @@ greeting(); // 输出：你好，小明
 
 ```cpp
 class MyClass {
-  std::string name; // 成员 成员熟悉
+  std::string name; // 成员 成员属性
   void hello() { printf("Hello I'm %s.\n", name); } // 成员 成员函数 成员方法
   MyClass(str_name): name(str_name) {} // 构造器 构造函数 constructor
   ~MyClass() { printf("I'm dead.\n") } // 析构器 析构函数 destructor
