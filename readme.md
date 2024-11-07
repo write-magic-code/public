@@ -1,4 +1,6 @@
-<img src='./static/avatar.png' style='align: center; width: 50%; height: 50%;'>
+<div align='center'>
+<img src='./static/avatar.png' style='width: 30%; height: 30%;'>
+</div>
 
 ![QQGroup](https://img.shields.io/badge/QQ%20Group-681271224-blue.svg)
 
