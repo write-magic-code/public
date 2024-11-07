@@ -45,7 +45,7 @@ Content-Length: 88
 Content-Type: text/html
 Connection: Closed
 
-{ "id": 123" }
+{ "id": 123 }
 ```
 
 响应与上面的请求类似，不过第一行内容不一样，又一个陌生的：200 OK。
