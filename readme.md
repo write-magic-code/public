@@ -31,7 +31,7 @@
 
 ## 贡献记录
 
-<a href="https://github.com/write-magic-code/public">
+<a href="https://github.com/write-magic-code/public/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=write-magic-code/public" />
 </a>
 
