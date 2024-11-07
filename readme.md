@@ -14,6 +14,7 @@
 - **git and hub**：Git 和 GitHub 最小常用功能
 - **network**：关于网络的常用知识
 - **important file type**: 重要的文件类型
+- **dev**：软件开发的概念
 
 请到对应目录下寻找相关 markdown 阅读。  
 
