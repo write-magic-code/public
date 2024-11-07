@@ -1,6 +1,6 @@
-<center>
-<img src='./static/avatar.png' style='width: 50%; height: 50%;'>
-</center>
+<img src='./static/avatar.png' style='align: center; width: 50%; height: 50%;'>
+
+![QQGroup](https://img.shields.io/badge/QQ%20Group-681271224-blue.svg)
 
 # Public 公共知识库
 持续更新中...
@@ -28,22 +28,9 @@
 而其余部分，则是需要/兴趣的时候再阅读。  
 
 ## 贡献记录
-欢迎加入社区，并向本 repo 提出任何好玩的、有益的贡献。
-| 贡献者 | 文档部分 | 时间 |
-| --- | --- | --- |
-| [AkaraChen](https://github.com/AkaraChen) | network | 2024.09.9 |
-| [OmangoItai](https://github.com/OmangoItai) | toolset mindset | 2024.09.10 |
-| [OmangoItai](https://github.com/OmangoItai) | language | 2024.09.10 |
-| [OmangoItai](https://github.com/OmangoItai) | readme | 2024.09.10 |
-| [AkaraChen](https://github.com/AkaraChen) | html css js | 2024.09.30 |
-| [OmangoItai](https://github.com/AkaraChen) | html css js | 2024.09.30 |
-| [AkaraChen](https://github.com/AkaraChen) | dev | 2024.10.03 |
-| [OmangoItai](https://github.com/OmangoItai) | important file type | 2024.10.09 |
-| [OmangoItai](https://github.com/OmangoItai) | language | 2024.10.11 |
-| [OmangoItai](https://github.com/OmangoItai) | language | 2024.10.12 |
-| [jnj52016](https://github.com/jnj52016) | toolset mindset | 2024.10.14 |
-| [Kagenui-yozuru](https://github.com/Kagenui-yozuru) | toolset mindset | 2024.10.28 |
-| [OmangoItai](https://github.com/OmangoItai) | language | 2024.11.08 |
-| [OmangoItai](https://github.com/OmangoItai) | html css js | 2024.11.08 |
-| [OmangoItai](https://github.com/OmangoItai) | git and hub | 2024.11.08 |
 
+<a href="https://github.com/write-magic-code/public">
+  <img src="https://contrib.rocks/image?repo=write-magic-code/public" />
+</a>
+
+欢迎加入社区，并向本 repo 提出任何好玩的、有益的贡献。
