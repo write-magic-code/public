@@ -1,21 +1,116 @@
 # HTML, CSS, and JavaScript
 
-## 在哪儿学
-MDN：https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web
+简易前端三件套入门，详细请自查。  
 
-## 三件套是什么
+该文档旨在帮助你快速了解三件套的概念，并立马投入到其它学习中，不至于被其基础拖累。如果你想学习前端，看完该文档就可以去了。
 
-### HTML
+我们不会讲任何细节。随着你的学习，你需要经常查阅 MDN 补全对三件套的细节：
 
-HTML 是一种标记语言，即没有编程能力，只能描述内容的结构。HTML 由一系列标签组成，每个标签代表一个元素，元素之间可以嵌套。HTML 用于描述网页的结构，包括标题、段落、列表、表格、图片、链接等。是网页的骨架，决定了网页逻辑上的结构。
+https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web
 
-### CSS
 
-CSS 是一种样式表，用于描述网页的外观，包括 HTML 元素的位置、间隔、大小、装饰和交互等等，是网页的皮肤，决定了网页视觉上的表现。CSS 通过选择器选中元素，然后为这些元素设置样式。
+## HTML
+
+HTML 是一种标记语言，**即没有编程能力，只能描述内容的结构**。HTML 由一系列标签组成，每个标签代表一个元素，元素之间可以嵌套。HTML 用于描述网页的结构，包括标题、段落、列表、表格、图片、链接等。是网页的骨架，决定了网页逻辑上的结构。
+
+无需多言，新建一个`test.html`文件，并输入以下代码，并尝试用浏览器打开看看渲染效果：
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>我的第一个网页</title>
+  </head>
+  <body>
+    <h1>一级标题</h1>
+    <p>一个段落</p>
+    <div>一个 div 块</div>
+    <ul>
+      <li>列表1</li>
+      <li>列表2</li>
+      <li>列表3</li>
+    </ul>
+  </body>
+</html>
+```
+因此，HTML 结构主要包括：
+```html
+<!DOCTYPE html> <!-- 文档类型声明:告诉浏览器使用 HTML5 规范解析文档 -->
+<html> <!-- 根元素 -->
+  <head> <!-- 包含网页的元信息，比如标题、样式、脚本等 -->
+    
+    <style>
+      /* 
+        这里写 CSS 样式
+        style 标签内会以 CSS 语法解析
+        因此这里没使用标签注释
+      */
+    </style>
+    
+    <script>
+      /* 
+        这里写 JavaScript 脚本 
+        script 标签内会以 JavaScript 语法解析
+        因此这里没使用标签注释
+      */
+    </script>
+  
+  </head>
+  
+  <body>
+    <!-- 这里写 HTML 页面内容 -->
+  </body>
+
+</html>
+```
+
+## CSS
+
+CSS 是一种样式表，用于描述网页的外观，包括 HTML 元素的位置、间隔、大小、装饰和交互等等，**是网页的皮肤，决定了网页视觉上的表现**。CSS 通过选择器选中元素，然后为这些元素设置样式。
+
+- **border**：英[**ˈbɔːdə(r)**] 美[**ˈbɔːrdər**]
+  - 边界;边境;国界;边框
+- **solid**：英[**ˈsɒlɪd**] 美[**ˈsɑːlɪd**]
+  - 固体的;非中空的，实心的;坚固的
+
+CSS 有三种引入方式：
+
+1. **直接写在元素标签处：在标签添加 style 属性，将样式写在标签内**
+```html
+<div style="border: 1px solid black;">
+  ...
+</div>
+```
+2. **写进 style 标签：在 head 标签中添加 style 标签，将样式写在标签内**
+```html
+<head>
+  <style>
+    h1 {
+      border: 1px solid black;
+      color: red;
+    }
+  </style>
+</head>
+```
+3. **文件引入：在 head 标签中添加 link 标签，将样式文件链接到 HTML 文件中**
+* style.css
+```css
+h1 {
+  border: 1px solid black;
+  color: red;
+}
+```
+* test.html
+```html
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+```
 
 ### JS
 
-JS 是一种用途广泛的脚本语言，在网页开发中，主要用于实现网页的交互功能，比如界面的动态效果、用户的交互行为、数据的获取与处理等等，网页大部分的交互、功能都通过 js 实现。是网页的肌肉，决定了网页的功能。
+JS 是一种用途广泛的脚本语言，在网页开发中，**主要用于实现网页的交互功能**（比如界面的动态效果、用户的交互行为、数据的获取与处理等等）。网页大部分的交互、功能都通过 js 实现。是网页的肌肉，**决定了网页的功能**。
+
+详见 Js 语法，runoob 和 MDN 都能找到。
 
 ## 常规业务如何实现
 
@@ -110,7 +205,7 @@ navigator.geolocation.getCurrentPosition();
 document.cookie = 'name=hello';
 ```
 
-这个建议用到的时候直接搜索，比如搜索 `fetch`，`navigator.geolocation`，`document.cookie` 等等。
+建议用到的时候直接搜索，比如 `fetch`，`navigator.geolocation`，`document.cookie` 等等。
 
 ## 浏览器
 
@@ -118,11 +213,11 @@ document.cookie = 'name=hello';
 
 浏览器的本质是一个下载 HTML 并解析渲染的工具。
 
-当在浏览器打开一个网址的时候，服务端一般会返回一个 HTML 作为入口，HTML 里面有 CSS 和 JS 的引用，以及图片、视频的地址等，浏览器会并行地下载并缓存，就像这样：
+当浏览器打开网址时，服务端一般会返回一个 HTML 作为入口，HTML 里面有 CSS 和 JS 的引用，以及图片、视频的地址等，浏览器会并行地下载并缓存，就像这样：
 
 ![alt text](f12-network.png)
 
-浏览器拿到这些资源之后，就依据这些资源来渲染网页，渲染的过程大概分为如下几个步骤：
+浏览器拿到这些资源之后，就依据它们渲染网页。渲染的过程大概分为如下几个步骤：
 
 1. 用 HTML 构建 DOM 树
 2. 读取 CSS 和 HTML 中编码的样式信息，构建样式树
@@ -135,8 +230,8 @@ document.cookie = 'name=hello';
 
 ### 常见浏览器
 
-- Chrome：Google 出品的浏览器，目前使用最广泛的浏览器
-- Firefox：Mozilla 出品的浏览器，开源
-- Safari：苹果出品的浏览器，macOS 和 iOS 上是默认浏览器
+- **Chrome**：Google 出品的浏览器，目前使用最广泛的浏览器
+- **Firefox**：Mozilla 出品的浏览器，开源
+- **Safari**：苹果出品的浏览器，macOS 和 iOS 上是默认浏览器
 
 其中 Chrome 有开源版 Chromium，而市场上有大量基于 Chromium 衍生的浏览器，比如 Edge、Opera 以及国内的 360、2345、QQ 浏览器等等。Chrome 与 Chromium 及其衍生占了整个市场的 90% 以上。
