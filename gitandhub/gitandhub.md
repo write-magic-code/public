@@ -93,3 +93,5 @@ GitHub 上的 repo 分两种：`public`和`private`。public 所有人可见，�
 GitHubDesktop 是 GitHub 官方推出的跨平台 Git 客户端，功能丰富，界面简洁。VsCode 内置了 Git 插件，让**管理项目**和**编写项目**融为一体，操作更丝滑。
 
 **一般而言，开发者主要使用以上两种工具，来避免繁琐的 Git 命令操作。这两样就够大部分人挑了。**
+
+## Git Ifs
