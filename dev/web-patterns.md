@@ -179,13 +179,13 @@ Frontend (Client)                    Backend (Server)
 - **Controller/ViewModel**: 处理用户交互，调用后端API
 
 
-#### 3.3 RESTful风格
+#### 3.4 RESTful风格
 
 分离之后自然需要新的通信方式，在web中的前后端通信，一般我们遵守RESTful风格。
 
 RESTful（Representational State Transfer，表征状态转移）确定了一种规范，即使用名称明确的 url，和基于 http 标准的 method，来实现对资源读取、更改的标准化。
 
-##### 3.3.1为什是RESTful风格？
+##### 3.4.1为什是RESTful风格？
 
 在早期，Web服务常用SOAP（Simple Object Access Protocol）协议：
 
@@ -264,7 +264,7 @@ Content-Type: application/json
 
 这种设计方式不仅使API更加直观，也充分利用了HTTP协议的特性，现已成为Web API设计的主流方案。
 
-#### 3.4 后端接口（API）示例
+#### 3.5 后端接口（API）示例
 
 ```
 GET    /api/users           // 获取用户列表
@@ -274,7 +274,7 @@ PUT    /api/users/{id}      // 更新指定用户
 DELETE /api/users/{id}      // 删除指定用户
 ```
 
-#### 3.5 前端请求示例
+#### 3.6 前端请求示例
 
 ```js
 const userApi = {
@@ -381,7 +381,7 @@ class UserVO {
 
 #### 5.3 各层的职责和优势
 
-#### **Entity（实体）**
+ **Entity（实体）**
 
 - 完整映射数据库结构
 - 包含所有业务数据
