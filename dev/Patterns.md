@@ -1,8 +1,8 @@
-## 写在前面
+## 前言
 
-​	MVC、RESTful、DTO 和 VO，它们本质上是工程实践中的**约定/规范**，而非编译器强制执行的规则。
+MVC、RESTful、DTO 和 VO，它们本质上是工程实践中的**约定/规范**，而非编译器强制执行的规则。
 
-​	编译器不会阻止你违背这些约定，但能通过编译的代码并不一定经得起实际使用的考验，无论是用户体验还是团队协作效率等等。**约定/规范**的意义正是为了解决这些实际问题。
+编译器不会阻止你违背这些约定，但能通过编译的代码并不一定经得起实际使用的考验，无论是用户体验还是团队协作效率等等。**约定/规范**的意义正是为了解决这些实际问题。
 
 ### 1. 三层架构
 
@@ -38,8 +38,78 @@
 
 #### 2.1 为什么是MVC
 
-随着表示层职责的增加，需要更细致的分层，MVC应运而生：
+##### 三层架构的局限性:
 
+1. 表示层职责过重:
+
+```js
+//伪代码
+Presentation UserPresentation {
+    init {
+        handle UIEvents      // UI事件
+        validate Forms      // 表单验证
+        process Data        // 数据处理
+        manage State        // 状态管理
+    }
+
+    render {
+        if validateForm() {
+            processData()
+            updateUI()
+        }
+    }
+}
+```
+2. 层间耦合性强:
+
+```js
+//伪代码
+Business UserBusiness {
+    dependency {
+        DataAccess userDataAccess
+        Presentation userPresentation
+    }
+
+    update(userData) {
+        userDataAccess.save(userData)      // 直接调用数据访问
+        userPresentation.refresh()         // 直接操作界面
+    }										
+}
+```
+
+#### 2.2 MVC模式的改进
+
+职责明确分离:
+
+
+```js
+// MVC改进后的结构
+//伪代码
+Model UserModel {
+    update(userData) {
+        // 只处理业务逻辑
+        validate(userData)
+        return repository.save(userData)
+    }
+}
+
+View UserView {
+    render(viewData) {
+        // 只负责展示
+        display userInfo
+        show status
+    }
+}
+
+Controller UserController {
+    route "/user/update" {
+        userData = parseRequest()
+        user = model.update(userData)
+        view.render(user)
+    }
+}
+```
+#### 2.3 MVC图示:
 ```
 	View (视图)
     ↗         ↖
@@ -51,75 +121,9 @@ View: 负责界面展示，将数据呈现给用户
 Controller: 处理用户请求，协调Model和View
 Model: 包含业务逻辑和数据处理
 ```
+### 3. 向前后端分离演进
 
-```js
-// Model（模型）：
-// - 处理数据和业务逻辑的核心层
-// - 包含：数据实体、业务逻辑、数据库访问
-
-// 1. 数据实体
-class User {
-    username
-    password
-}
-
-// 2. 业务逻辑
-class UserService {
-    import userRepository  // 数据库访问层
-
-    function getUser(username) {
-        validateUsername(username)     // 业务规则验证
-        return userRepository.find(username)  // 调用数据库访问层
-    }
-}
-
-// 3. 数据库访问
-class UserRepository {
-    function find(username) {
-        // 数据库查询逻辑
-        return user
-    }
-}
-```
-
-```js
-// View（视图）：
-// - 负责展示数据
-// - 不包含业务逻辑
-// - 只关注如何渲染数据
-view "user" {
-    title "User Profile"
-    
-    if (user exists) {
-        show user.username
-        // 渲染其他用户信息
-    }
-}
-```
-
-```js
-// Controller（控制器）：
-// - 处理前端和后端的交互
-class UserController {
-    import userService  // 控制器调用Model层
-
-    route "/user/{username}" {
-        // 1. 接收请求参数
-        // 2. 调用Model层
-        user = userService.getUser(username)
-        
-        // 3. 准备视图数据
-        model.data = user
-  
-        // 4. 返回视图
-        return view "user"
-    }
-}
-```
-
-### 3. 向RESTful风格前后端分离演进
-
-回到开始所说MVC只是一种约定，M,V,C三者只是抽象概念，view既可以放在后端用模板引擎渲染，也可以放在一个纯前端，使用前后端分离的方式开发。而在web中的前后端通信，一般我们遵守RESTful风格。
+回到开始所说MVC只是一种约定，M,V,C三者只是抽象概念，view既可以放在后端用模板引擎渲染，也可以放在一个纯前端，使用前后端分离的方式开发。
 
 #### 3.1 传统前后端不分离MVC的局限
 
@@ -137,15 +141,51 @@ Controller UserController {
 局限性：
 
 - 前后端代码强耦合
+
 - 前端开发受限
+
 - 难以适应多端需求
+
 - 服务端渲染性能消耗大
 
-#### 3.2 RESTful风格
+#### 3.2 前后端分离
+```
+Frontend (Client)                    Backend (Server)
+┌──────────────┐     HTTP/HTTPS     ┌──────────────┐
+│   Browser    │ ─────RESTful API─> │   API Layer  │
+│              │ <────JSON/Data──── │              │
+│  - React     │                    │  - Controller│
+│  - Vue       │                    │  - Service   │
+│  - Angular   │                    │  - Model     │
+└──────────────┘                    └──────────────┘
+```
+#### 3.3 MVC在前后端分离中的变化
+在传统的MVC架构中，**Model** 不仅负责数据的定义，还承担了业务逻辑的处理：
+- **Model**: 定义数据结构，处理业务逻辑
+- **View**: 展示用户界面
+- **Controller**: 接收用户请求，操作Model，返回View
+
+然而，随着前后端分离架构的普及，为了进一步分离关注点，提高系统的可维护性和扩展性，引入了**Service**层。此时，**Model** 仅负责数据实体的定义，业务逻辑被移动到**Service**层：
+
+**前后端分离后的职责分配:**
+
+**后端:**
+- **Controller**: 处理API请求，调用Service层
+- **Service**: 负责业务逻辑的实现
+- **Model**: 定义数据实体
+
+**前端:**
+- **View**: 用户界面展示
+- **Controller/ViewModel**: 处理用户交互，调用后端API
+
+
+#### 3.3 RESTful风格
+
+分离之后自然需要新的通信方式，在web中的前后端通信，一般我们遵守RESTful风格。
 
 RESTful（Representational State Transfer，表征状态转移）确定了一种规范，即使用名称明确的 url，和基于 http 标准的 method，来实现对资源读取、更改的标准化。
 
-##### 3.2.1为什是RESTful风格？
+##### 3.3.1为什是RESTful风格？
 
 在早期，Web服务常用SOAP（Simple Object Access Protocol）协议：
 
@@ -224,7 +264,7 @@ Content-Type: application/json
 
 这种设计方式不仅使API更加直观，也充分利用了HTTP协议的特性，现已成为Web API设计的主流方案。
 
-#### 3.3 后端接口
+#### 3.4 后端接口（API）示例
 
 ```
 GET    /api/users           // 获取用户列表
@@ -234,7 +274,7 @@ PUT    /api/users/{id}      // 更新指定用户
 DELETE /api/users/{id}      // 删除指定用户
 ```
 
-#### 3.4 前端请求
+#### 3.5 前端请求示例
 
 ```js
 const userApi = {
@@ -263,7 +303,7 @@ const userApi = {
 
 ### 5. Model层的细化：Entity、DTO和VO
 
-#### 5.1 早期问题
+#### 5.1 为什么是Entity、DTO和VO
 
 早期的开发中，常见以下问题：
 
@@ -323,7 +363,9 @@ class UserEntity {
 // DTO: 数据传输
 class CreateUserDTO {
     username    // 必填
+    @min = 6
     password    // 必填，最小长度6
+    @regexp = "^[a-zA-Z0-9\\u4e00-\\u9fa5]+$"
     email      // 必填，需验证格式
     // ... 请求参数验证规则
 }
@@ -349,6 +391,7 @@ class UserVO {
 // 服务层示例
 class UserService {
     function createUser(dto: CreateUserDTO) {
+        // 业务逻辑
         // dto转entity
         entity = new UserEntity({
             ...dto,
