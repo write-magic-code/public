@@ -21,11 +21,11 @@ MVC、RESTful、DTO 和 VO，它们本质上是工程实践中的**约定/规范
 为解决这些问题，引入了三层架构：
 
 ```
-表示层（Presentation Layer）
+表示层（Presentation Layer） → 用户看到的界面和交互
     ↓
-业务逻辑层（Business Layer）
+业务层（Business Layer）     → 核心逻辑处理
     ↓
-数据访问层（Data Access Layer）
+数据访问层（Data Access Layer） → 数据库操作
 ```
 
 每层职责明确：

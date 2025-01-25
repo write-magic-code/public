@@ -23,6 +23,7 @@
 6. [**important file type**](/important-file-type/important-file-type.md): 重要的文件类型
 7. [**dev**](/dev)：软件开发相关
     - [**concepts**](/dev/concepts.md)：概念
+    - [**web-patterns**](/dev/web-patterns.md)：web开发模式演进
 
 请到对应目录下寻找相关 markdown 阅读。  
 
