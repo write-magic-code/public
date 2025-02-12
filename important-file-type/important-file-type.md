@@ -148,3 +148,40 @@ name, age, isMale, purchaseHistory
 Tom, 25, true, cake, 10.5
 Tom, 25, true, iPad, 699
 ```
+
+---
+
+## dotenv (.env)
+
+dotenv 文件是一种用于存储环境变量的简单配置文件格式，通常命名为 .env。它在开发过程中广泛用于管理应用程序的配置信息,特别是敏感数据如 API 密钥、数据库凭证等。
+
+**语法特点**
+- **键值对**: 每行一个 KEY=VALUE 格式的环境变量定义
+- **简单**: 不支持嵌套结构，仅支持字符串类型的值
+- **注释**: 支持以 # 开头的单行注释
+- **无空格**: 变量名和值之间的等号周围不应有空格
+- **无引号**: 值通常不需要引号(除非包含空格)
+
+**优缺点**
+- **优点**：简单易用, 安全性高, 与各种开发工具和框架良好集成便于版本控制(通常使用 .env.example 模板)
+- **缺点**：仅支持扁平的键值结构, 不支持数组等复杂数据类型, 所有值都是字符串
+
+**文件示例**
+```dotenv
+# 数据库配置
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=password123
+DB_NAME=myapp
+
+# API 密钥
+API_KEY=abcd1234
+STRIPE_SECRET=sk_test_123456
+
+# 应用配置
+APP_ENV=development
+DEBUG=true
+PORT=3000
+```
+
+在实际开发中 .env 文件通常会被添加到 .gitignore 中以避免敏感信息泄露,同时提供一个 .env.example 模板文件作为参考。
